@@ -3,6 +3,7 @@ package be.pxl.ja.streamingservice.model;
 import be.pxl.ja.streamingservice.util.PasswordUtil;
 
 import java.util.*;
+import java.util.regex.Pattern;
 
 public class Account {
     public static final int MINIMUM_PASSWORD_STRENGTH = 5;
@@ -75,6 +76,10 @@ public class Account {
     }
 
     public void setEmail(String email) {
+        String pattern = "^(.+)@(.+)$";
+        if (!email.matches(pattern)) {
+            throw new IllegalArgumentException("Het e-mailadres moet een gelig formaat hebben.");
+        }
         this.email = email;
     }
 
