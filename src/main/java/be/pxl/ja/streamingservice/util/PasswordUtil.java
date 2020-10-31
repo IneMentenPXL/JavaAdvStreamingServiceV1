@@ -44,7 +44,7 @@ public class PasswordUtil {
 			char character = password.charAt(i);
 			hasDigit = hasDigit || Character.isDigit(character);
 			hasLowerCase = hasLowerCase || Character.isLowerCase(character);
-			hasUpperCase = hasUpperCase || Character.isDigit(character);
+			hasUpperCase = hasUpperCase || Character.isUpperCase(character);
 			hasSpecialCharacter = hasSpecialCharacter || SPECIAL_CHARACTERS.contains(String.valueOf(character));
 		}
 		if (hasDigit) {

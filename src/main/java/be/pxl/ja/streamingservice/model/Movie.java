@@ -49,15 +49,18 @@ public class Movie extends Content implements Playable {
 	}
 
 	public boolean isLongPlayingTime() {
-		return duration > LONG_PLAYING_TIME;
+		return duration >= LONG_PLAYING_TIME;
 	}
 
 	public String getPlayingTime() {
 		int hours = duration / 60;
 		int minutes = duration % 60;
 		StringBuilder result = new StringBuilder();
+		if (duration == 0) {
+			return "?";
+		}
 		if (hours > 0) {
-			result.append(hours).append(" u ");
+			result.append(hours).append(" h ");
 		}
 		if (minutes > 0) {
 			result.append(minutes).append(" min");
